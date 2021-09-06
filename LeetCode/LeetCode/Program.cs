@@ -6,7 +6,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Sort.Quicksort();
+            Console.WriteLine(Recursion.FibonacciSequence(6));
         }
     }
 }
