@@ -6,8 +6,12 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            Sort.Quicksort();
-            Console.WriteLine(Recursion.FibonacciSequence(6));
+            int[] a = new int[] { 1, 2, 3,3,4,1,5 };
+            int[] b = new int[] { 1, 2,1,3,8};
+            string[] s = new string[] { "flower", "flow", "flight" };
+            ArraySeries arraySeries = new ArraySeries();
+            var result = arraySeries.LongestCommonPrefix(s);
+            Console.WriteLine(result);
         }
     }
 }
