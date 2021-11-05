@@ -156,5 +156,117 @@ namespace LeetCode
             }
             return i + 1;
         }
+
+        /// <summary>
+        /// 第66题：加一
+        /// </summary>
+        /// <param name="digits"></param>
+        /// <returns></returns>
+        public int[] PlusOne(int[] digits)
+        {
+            int len = digits.Length;
+            for (int i = len - 1; i >= 0; i--)
+            {
+                digits[i]++;
+                digits[i] %= 10;
+                if (digits[i] != 0)
+                    return digits;
+            }
+            digits = new int[len + 1];
+            digits[0] = 1;
+            return digits;
+        }
+
+        /// <summary>
+        /// 第1题：两数之和
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public int[] TwoSum(int[] nums, int target)
+        {
+            Dictionary<int, int> resultMap = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int otherNumber = target - nums[i];
+                if (resultMap.ContainsKey(otherNumber))
+                {
+                    return new int[] { resultMap[otherNumber], i };
+                }
+                else
+                {
+                    resultMap[nums[i]] = i;
+                }
+            }
+            return new int[] { 0, 0 };
+        }
+        /// <summary>
+        /// 15. 三数之和
+        /// 给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public IList<IList<int>> ThreeSum(int[] nums)
+        {
+            IList<IList<int>> res = new List<IList<int>>();
+            if (nums.Length < 3 || nums == null)
+            {
+                return res;
+            }
+            Array.Sort(nums);
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int target = 0 - nums[i];
+                int l = i + 1;
+                int r = nums.Length - 1;
+                if (nums[i] > 0)
+                    break;
+                if (i == 0 || nums[i] != nums[i - 1])
+                {
+                    while (l < r)
+                    {
+                        if (nums[l] + nums[r] == target)
+                        {
+                            res.Add(new int[] { nums[i], nums[l], nums[r] });
+                            while (l < r && nums[l] == nums[l + 1]) l++;
+                            while (l < r && nums[r] == nums[r - 1]) r--;
+                            l++;
+                            r--;
+                        }
+                        else if (nums[l] + nums[r] < target)
+                            l++;
+                        else
+                            r--;
+                    }
+                }
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// 第6题：Z 字形变换
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="numRows"></param>
+        /// <returns></returns>
+        public string Convert(string s, int numRows)
+        {
+            if (numRows == 1) return s;
+            String[] arr = new String[numRows];
+            Array.Fill(arr, "");
+            int i = 0, flag = -1;
+            foreach (char c in s.ToCharArray())
+            {
+                arr[i] += c;
+                if (i == 0 || i == numRows - 1) flag = -flag;
+                i += flag;
+            }
+            StringBuilder res = new StringBuilder();
+            foreach (String ch in arr)
+            {
+                res.Append(ch);
+            }
+            return res.ToString();
+        }
     }
 }
