@@ -30,3 +30,5 @@ D:\git\explame\LeetCode\LeetCode\obj\Debug\net5.0\LeetCode.dll
 D:\git\explame\LeetCode\LeetCode\obj\Debug\net5.0\ref\LeetCode.dll
 D:\git\explame\LeetCode\LeetCode\obj\Debug\net5.0\LeetCode.pdb
 D:\git\explame\LeetCode\LeetCode\obj\Debug\net5.0\LeetCode.genruntimeconfig.cache
+E:\老电脑数据\git\explame\LeetCode\LeetCode\bin\Debug\net5.0\Newtonsoft.Json.dll
+E:\老电脑数据\git\explame\LeetCode\LeetCode\obj\Debug\net5.0\LeetCode.csproj.CopyComplete

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace LeetCode
 {
@@ -6,12 +7,20 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            int[] a = new int[] { 1, 2, 3,3,4,1,5 };
-            int[] b = new int[] { 1, 2,1,3,8};
-            string[] s = new string[] { "flower", "flow", "flight" };
-            ArraySeries arraySeries = new ArraySeries();
-            var result = arraySeries.Convert("LEETCODEISHIRING", 4);
-            Console.WriteLine(result);
+            ListNode listNode = new ListNode(3);
+            listNode.next=new ListNode(2);
+            listNode.next.next=new ListNode(0);
+            listNode.next.next.next=new ListNode(-4);
+            listNode.next.next.next.next = listNode.next;
+
+            ListNode listNode2 = new ListNode(1);
+            listNode2.next = new ListNode(3);
+            listNode2.next.next = new ListNode(5);
+            listNode2.next.next.next = new ListNode(6);
+
+            LinkedListSeries linkedListSeries = new LinkedListSeries();
+           var r= linkedListSeries.HasCycle(listNode);
+            Console.WriteLine(JsonConvert.SerializeObject(r));
         }
     }
 }

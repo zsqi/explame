@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "9BHn6e5ewfc8lq3Wf/+aHhkAolE6egNxxF1oRHmeLbHljMDYBNdqk3dA4+gluBSZFbbuizAZat2rpOZqYlXiWw==",
+  "dgSpecHash": "QmCU41s+t2EIjYdxVsUdGcE07sTHzQpLBMkHQKJtxGsBQbHtLyle6IDsSnj8NcE4hWmCoyEJf9DgfquTa9pgNg==",
   "success": true,
-  "projectFilePath": "D:\\git\\explame\\LeetCode\\LeetCode\\LeetCode.csproj",
+  "projectFilePath": "E:\\老电脑数据\\git\\explame\\LeetCode\\LeetCode\\LeetCode.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\zsq\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512",
-    "C:\\Users\\zsq\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\zsq\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\zsq\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+    "C:\\Users\\15622\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }
