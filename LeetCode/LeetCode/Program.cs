@@ -7,10 +7,9 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            int[] a = new int[] { 2, 7, 9, 3, 1 };
-            DynamicProgramming dynamicProgramming = new DynamicProgramming();
-            var r=dynamicProgramming.Rob(a);
-            Console.WriteLine(JsonConvert.SerializeObject(r));
+            StringSeries series = new StringSeries();
+            
+            Console.WriteLine(series.FirstUniqChar("swegws"));
         }
     }
 }
