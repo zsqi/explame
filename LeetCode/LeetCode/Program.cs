@@ -8,8 +8,13 @@ namespace LeetCode
         static void Main(string[] args)
         {
             StringSeries series = new StringSeries();
-            
-            Console.WriteLine(series.FirstUniqChar("swegws"));
+
+            var a = series.kmpNext("XXYXXYXXX");
+            foreach (var item in a)
+            {
+                Console.WriteLine(item);
+            }
+
         }
     }
 }
