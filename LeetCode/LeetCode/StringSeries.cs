@@ -278,5 +278,25 @@ namespace LeetCode
             }
             return -1;
         }
+        /// <summary>
+        /// 第58题：最后一个单词的长度
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public int LengthOfLastWord(string s)
+        {
+            if (s == null || s.Length == 0) return 0;
+            int count = 0;
+            for (int i = s.Length - 1; i >= 0; i--)
+            {
+                if (s[i] == ' ')
+                {
+                    if (count == 0) continue;
+                    break;
+                }
+                count++;
+            }
+            return count;
+        }
     }
 }
