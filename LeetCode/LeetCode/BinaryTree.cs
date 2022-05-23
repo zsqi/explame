@@ -141,6 +141,104 @@ namespace LeetCode
                 return root;
             }
         }
+
+        public TreeNode FindMax(TreeNode root)
+        {
+            if (root == null) return null;
+            else if (root.right != null) return FindMax(root.right);
+            else return root;
+        }
+        /// <summary>
+        /// 第450题：删除二叉搜索树中的节点
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public TreeNode DeleteNode(TreeNode root, int key)
+        {
+            TreeNode Tmp;
+            if (root == null) return null;//未找到相应的删除节点
+            else if (root.val > key)
+            {
+                root.left = DeleteNode(root.left, key);
+            }
+            else if (root.val < key)
+                root.right = DeleteNode(root.right, key);
+            else
+            {
+                if (root.left != null && root.right != null)
+                {
+                    Tmp = FindMax(root.left);
+                    root.val = Tmp.val;
+                    root.left = DeleteNode(root.left, root.val);
+                }
+                else
+                {
+                    if (root.left != null) root = root.left;
+                    else root = root.right;
+                }
+            }
+            return root;
+        }
+
+
+        /// <summary>
+        /// One step right and then always left
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public int Successor(TreeNode root)
+        {
+            root = root.right;
+            while (root.left != null) root = root.left;
+            return root.val;
+        }
+
+        /// <summary>
+        /// One step left and then always right
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public int Predecessor(TreeNode root)
+        {
+            root = root.left;
+            while (root.right != null) root = root.right;
+            return root.val;
+        }
+        /// <summary>
+        /// 第450题：删除二叉搜索树中的节点
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public TreeNode DeleteNode2(TreeNode root, int key)
+        {
+            if (root == null) return null;
+
+            // delete from the right subtree
+            if (key > root.val) root.right = DeleteNode2(root.right, key);
+            // delete from the left subtree
+            else if (key < root.val) root.left = DeleteNode2(root.left, key);
+            // delete the current node
+            else
+            {
+                // the node is a leaf
+                if (root.left == null && root.right == null) root = null;
+                // the node is not a leaf and has a right child
+                else if (root.right != null)
+                {
+                    root.val = Successor(root);
+                    root.right = DeleteNode2(root.right, root.val);
+                }
+                // the node is not a leaf, has no right child, and has a left child    
+                else
+                {
+                    root.val = Predecessor(root);
+                    root.left = DeleteNode2(root.left, root.val);
+                }
+            }
+            return root;
+        }
     }
 
 
