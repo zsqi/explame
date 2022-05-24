@@ -239,6 +239,92 @@ namespace LeetCode
             }
             return root;
         }
+
+        /// <summary>
+        /// 第110题：平衡二叉树
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public bool IsBalanced(TreeNode root)
+        {
+            if (root == null)
+            {
+                return true;
+            }
+            else
+            {
+                return Math.Abs(Height(root.left) - Height(root.right)) <= 1 && IsBalanced(root.left) && IsBalanced(root.right);
+            }
+        }
+
+        public int Height(TreeNode root)
+        {
+            if (root == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Math.Max(Height(root.left), Height(root.right)) + 1;
+            }
+        }
+
+        public bool IsBalanced2(TreeNode root)
+        {
+            return Height2(root) >= 0;
+        }
+
+        public int Height2(TreeNode root)
+        {
+            if (root == null)
+            {
+                return 0;
+            }
+            int leftHeight = Height2(root.left);
+            int rightHeight = Height2(root.right);
+            if (leftHeight == -1 || rightHeight == -1 || Math.Abs(leftHeight - rightHeight) > 1)
+            {
+                return -1;
+            }
+            else
+            {
+                return Math.Max(leftHeight, rightHeight) + 1;
+            }
+        }
+
+        /// <summary>
+        /// 第222题：完全二叉树的节点个数
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public int CountNodes(TreeNode root)
+        {
+            if (root == null)
+            {
+                return 0;
+            }
+            int left = CountLevel(root.left);
+            int right = CountLevel(root.right);
+            if (left == right)
+            {
+                return CountNodes(root.right) + (1 << left);
+            }
+            else
+            {
+                return CountNodes(root.left) + (1 << right);
+            }
+        }
+
+        private int CountLevel(TreeNode root)
+        {
+            int level = 0;
+            while (root != null)
+            {
+                level++;
+                root = root.left;
+            }
+            return level;
+        }
     }
 
 
