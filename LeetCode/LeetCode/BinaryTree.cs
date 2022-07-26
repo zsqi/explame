@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace LeetCode
 {
+    /// <summary>
+    /// 二叉树系列
+    /// </summary>
     public class BinaryTree
     {
         /// <summary>
@@ -324,6 +327,42 @@ namespace LeetCode
                 root = root.left;
             }
             return level;
+        }
+
+        /// <summary>
+        /// 第814题：二叉树的剪枝
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public TreeNode PruneTree1(TreeNode root)
+        {
+            return ContainsOne(root) ? root : null;
+        }
+
+        public bool ContainsOne(TreeNode node)
+        {
+            if (node == null) return false;
+            bool a1 = ContainsOne(node.left);
+            bool a2 = ContainsOne(node.right);
+            if (!a1) node.left = null;
+            if (!a2) node.right = null;
+            return node.val == 1 || a1 || a2;
+        }
+        /// <summary>
+        /// 深度优先搜索，如果不符合返回null，符合的话返回自己
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public TreeNode PruneTree(TreeNode root)
+        {
+            if (root == null)
+                return null;
+            root.left = PruneTree(root.left);
+            root.right = PruneTree(root.right);
+            if (root.left == null && root.right == null)
+                if (root.val == 0)
+                    return null;
+            return root;
         }
     }
 
